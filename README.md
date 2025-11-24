@@ -18,7 +18,7 @@ MATLAB code for Section 4 simulations
     for all controllers.
 
 - `Section_4.3/`  
-  MATLAB scripts for the simulations with delay perturbations (to be added).
+  MATLAB scripts for simulations with delay perturbations.
 
 - `Auxiliary Functions/`  
   Helper functions and data files:
