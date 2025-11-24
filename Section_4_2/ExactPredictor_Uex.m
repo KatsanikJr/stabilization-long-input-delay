@@ -1,5 +1,5 @@
 clc; clear all; close all;
-
+addpath('../Auxiliary Functions');
 %% System Dynamics 
 
 A1 = [1 1; 1 2];
@@ -19,13 +19,13 @@ K3 = computeK(A3,B3,-3,-2);   % closed-loop matrix: A3 + B3*K3
 
 % Switching signal σ(t)
 % For correct reproducibility, load the pre-generated (by generateSwSignal.m) signal stored in 'swsig_values.mat'. 
-% It must contain a vector "swsig_values" of length numSteps+1 with entries in {1,2,3}.
+% It must contain a vector "swsig_values" with entries in {1,2,3}.
 
 load('swsig_values.mat')
 
 D               = 1;          % Input delay [sec]
 dwell_time_min  = 0.9;        % Minimum dwell time [sec]
-dwell_time_max  = 5;          % Maximum dwell time [sec]
+dwell_time_max  = 3;          % Maximum dwell time [sec]
 
 T  = 10;                      % Total simulation time [sec]
 dt = 0.001;                   % Time step [sec]
@@ -38,13 +38,12 @@ delay_steps = round(D/dt);    % Delay in discrete steps
 
 
 X   = zeros(2, numSteps+1);       % State trajectory
-P_T = zeros(2, numSteps+1);       % Predictor state (for diagnostics)
-U   = zeros(1, delay_steps+numSteps+1); % Control input (with delay buffer)
-
+P_T = zeros(2, numSteps+1);       % Predictor state 
+U   = zeros(1, delay_steps+numSteps+1); % Control input 
 % Initial condition
 X(:,1) = [1; -1];
 
-%% Cell arrays for mode-dependent matrices
+% Mode-dependent matrices and exponentials precomputations
 
 Amode = {A1,A2,A3};
 Bmode = {B1,B2,B3};
@@ -61,7 +60,7 @@ for i=1:numSteps %i=t
     B = Bmode{mode_now};
    
     
-    %% Build the delay window [i, i + delay_steps]
+    % Build the delay window [i, i + delay_steps]
     if (i + delay_steps) <= length(swsig_values)
         window = swsig_values(i:i+delay_steps);       
     else
@@ -92,7 +91,7 @@ for i=1:numSteps %i=t
     % Last index in the prediction horizon (i + delay_steps)
     sn = [sn, i + delay_steps];
     
-    %% Build the exact predictor P(t) = X(t + D), t=i
+    % Build the exact predictor P(t) = X(t + D), t=i, equation (18) of the paper
     prodX=1;
     integral_term = zeros(2,1);
     
@@ -114,12 +113,12 @@ for i=1:numSteps %i=t
                 integral_term = integral_term + prodU * (Pwr_A{mn(n)}^(-delay_steps+sn(n+1) - k) * Bmode{mn(n)} * U(k+delay_steps) )  ;   % Left-point rule integration
          end
     end
-    % Exact predictor for X(t + D):
+    % Exact predictor
     P_t = prodX * X(:,i) + integral_term * dt;
     
-    %% Control law and plant update
+    % Control law and plant update
     
-    % Control at time t (stored with delay buffer)
+    % Control at time t, equation (140) of the paper
     U(i + delay_steps) = K * P_t;
     
     % Plant dynamics: X_{i+1} = X_i + dt ( A X_i + B U_i )
@@ -134,7 +133,7 @@ end
 %% Save data for later use (e.g., performance index)
 save('U_ex.mat', 'X', 'U');
 
-%% Plot state X(t) 
+% Plot state X(t) 
 figure('Position', [100, 100, 800, 600]);
 subplot(2,1,1)
 plot(time, X(1, :), 'r', 'LineWidth',3);
@@ -150,7 +149,7 @@ ylabel('$X(t)$', 'Interpreter', 'latex','FontSize', 25);
 xlabel('$t$ (sec)', 'Interpreter', 'latex','FontSize', 25);
 legend('$X_1(t)$','$X_2(t)$', 'Interpreter', 'latex', 'FontSize', 17); 
 
-%% Plot control input U(t)
+% Plot control input U(t)
 subplot(2,1,2)
 plot(time, U(delay_steps:delay_steps+numSteps), 'k', 'LineWidth',3);
 %yticks([-20 -10 0 20 40 60]);
@@ -164,7 +163,7 @@ ylabel('$U(t)$', 'Interpreter', 'latex','FontSize', 25);
 hold off
 
 
-%% Plot the switching signal σ(t)
+% Plot the switching signal σ(t)
 figure('Position', [100, 100, 800, 600]);
 plot(time, swsig_values(1:length(time)), 'o', 'MarkerFaceColor', 'b', 'MarkerEdgeColor', 'b', 'MarkerSize', 5);
 grid on;
