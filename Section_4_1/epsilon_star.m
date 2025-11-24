@@ -55,7 +55,7 @@ eps = max([
     norm(K2 - K_bar, 2), ...
     norm(K3 - K_bar, 2)]);
 
-%% Step 2: Lyapunov matrices P_i and Q_i
+%% Step 2: Lyapunov matrices S_i and Q_i
 % These come from the Lyapunov equation (13)
 
 Acl1 = A1 + B1*K1; % closed loop dynamics A1+B1*K1       
@@ -211,3 +211,4 @@ fprintf('epsilon      :                             %g\n', eps);
 fprintf('epsilon_star :                             %g\n', min_positive_real_root);
 
 fprintf('tau_d_star (theoretical dwell-time bound): %g\n', tau_d_star);
+
