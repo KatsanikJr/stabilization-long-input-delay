@@ -3,7 +3,7 @@
 % corresponding dwell-time bound tau_d_star for the average predictor-based
 % controller U1, for the switched system with input delay D = 1.
 %
-% This script implements exactly the quantities appearing in Theorem 1 of the paper:
+% This script computes exactly the quantities appearing in Theorem 1 of the paper:
 %
 %   - \epsilon         : equation (14)
 %   - \epsilon_\star   : equation (75)    
@@ -209,4 +209,5 @@ tau_d_star = log(mu) / beta; %equation (76)
 
 fprintf('epsilon      :                             %g\n', eps);
 fprintf('epsilon_star :                             %g\n', min_positive_real_root);
+
 fprintf('tau_d_star (theoretical dwell-time bound): %g\n', tau_d_star);
