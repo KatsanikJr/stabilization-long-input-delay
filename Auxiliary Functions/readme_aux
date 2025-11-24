@@ -1,0 +1,13 @@
+# Auxiliary Functions
+
+This folder contains helper functions and data used by the scripts in
+`Section_4.1`–`Section_4.3`.
+
+- `computeK.m` – computes stabilizing state-feedback gains \(K_i\) for each pair \((A_i,B_i)\).
+- `optimizeL2.m` – CVX-based optimization to compute the "average" matrices used in the analysis.
+- `generateSwSignal.m` – generates a random switching signal with dwell-time constraints.
+- `swsig_values.mat` – the particular switching signal \(\sigma(t)\) used in the paper.
+  It was generated once using `generateSwSignal.m` and is stored here so that
+  the simulations in Section 4 can be **exactly** reproduced.  
+  Users do *not* need to call `generateSwSignal.m` unless they want to explore
+  different random switching signals.
