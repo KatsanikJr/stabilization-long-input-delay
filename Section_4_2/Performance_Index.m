@@ -21,6 +21,8 @@
 clear all;
 clc;
 addpath('../Auxiliary Functions');
+addpath('../Section_4_1');
+
 
 %% PARAMETERS
 D  = 1;           % Input delay
@@ -90,4 +92,5 @@ Controller = ["U1-dwell"; "U1-no-dwell"; "U2-dwell"; "U2-no-dwell"; "Exact predi
 J_value    = [J_U1_dwell; J_U1_nodwell; J_U2_dwell; J_U2_nodwell; J_U_ex];
 
 Results = table(Controller, J_value)
+
 
