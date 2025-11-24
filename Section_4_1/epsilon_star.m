@@ -5,9 +5,9 @@
 %
 % This script computes exactly the quantities appearing in Theorem 1 of the paper:
 %
-%   - \epsilon         : equation (14)
-%   - \epsilon_\star   : equation (75)    
-%   - \tau_d^\star     : equation (76)     
+%   - ε         : equation (14)
+%   - ε^*       : equation (75)    
+%   - τ_d^*     : equation (76)     
 %
 % Output:
 %   Prints:  epsilon, epsilon_star, tau_d_star
@@ -211,4 +211,5 @@ fprintf('epsilon      :                             %g\n', eps);
 fprintf('epsilon_star :                             %g\n', min_positive_real_root);
 
 fprintf('tau_d_star (theoretical dwell-time bound): %g\n', tau_d_star);
+
 
