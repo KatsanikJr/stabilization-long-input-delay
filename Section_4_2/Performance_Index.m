@@ -1,4 +1,4 @@
-%% performance_index_study.m
+%% Performance_Index.m
 % Computes the performance index
 %
 %       J = ∫_0^T ( |X(t)|^2 + |U(t)|^2 ) dt, equation (141) in paper
@@ -92,5 +92,6 @@ Controller = ["U1-dwell"; "U1-no-dwell"; "U2-dwell"; "U2-no-dwell"; "Exact predi
 J_value    = [J_U1_dwell; J_U1_nodwell; J_U2_dwell; J_U2_nodwell; J_U_ex];
 
 Results = table(Controller, J_value)
+
 
 
