@@ -1,7 +1,7 @@
 %% U1_no_dwell.m
 % Average predictor-based controller U1 without dwell-time knowledge.
 % Implements (1) and (3)--(9) of the paper for the switched system (1) with
-% τ(τ)=0, for all times t corresponding to controller in [42]
+% τ(t)=0, for all times t corresponding to controller in [42]
 % with input delay D = 1.
 %
 % Output:
@@ -171,4 +171,5 @@ ax = gca;
 ax.FontSize = 20; 
 % Improve plot clarity
 alpha(0.2); % Set marker transparency
+
 hold off;
