@@ -6,7 +6,11 @@ The mathematical background and the documentation for the codes are briefly desr
 
 ## Requirements
 
-The codes require MATLAB and the CVX toolbox (with a compatible SDP solver such as SeDuMi, SDPT3, or MOSEK).
+The codes require:
+
+- **MATLAB**
+- **CVX toolbox** (with a compatible SDP solver such as SeDuMi, SDPT3, or MOSEK)  
+- **Symbolic Math Toolbox** (for the computation of theoretical constants in `epsilon_star.m` and `barepsilon_star.m`)
 
 ## Usage
 
@@ -19,7 +23,7 @@ U2_dwell_time.m
 epsilon_star.m
 barepsilon_star.m
 
-Section_4.2/ — Comparison with the exact predictor and no–dwell-time cases.
+Section_4.2/ — Comparison with the exact predictor and no dwell time knowledge cases.
 Run:
 U1_nodwell_time.m
 U2_nodwell_time.m
@@ -29,7 +33,7 @@ Then compute the performance index.
 Run:
 Performance_Index.m
 
-Section_4.3/ — Robustness (delay perturbations).
+Section_4.3/ — Robustness to delay mismatches (delay perturbations).
 Run:
 U1_robust_0_95.m
 U1_robust_1_05.m
@@ -55,27 +59,4 @@ arXiv preprint: (https://arxiv.org/abs/2506.03908)
   title  = {Stabilization of Linear Switched Systems with Long Constant Input Delay via Average or Averaging Predictor Feedbacks},
 }
 
-# Stabilization of Linear Switched Systems with Long Input Delay via Average or Averaging Predictor Feedbacks
-
-The purpose of these MATLAB codes is to reproduce the simulation results from Section 4 of the paper “Stabilization of Linear Switched Systems with Long Constant Input Delay via Average or Averaging Predictor Feedbacks” by Andreas Katsanikakis and Nikolaos Bekiaris-Liberis. The mathematical background and documentation for the codes are described in the file README.pdf.
-
-## Requirements
-
-The codes require:
-
-- **MATLAB**
-- **CVX toolbox** (with a compatible SDP solver such as SeDuMi, SDPT3, or MOSEK)  
-- **Symbolic Math Toolbox** (for the computation of theoretical constants in `epsilon_star.m` and `barepsilon_star.m`)
-
-## Usage
-
-The simulation results of Section 4 can be reproduced by running the scripts contained in the folders:
-
-- **Section_4_1/** — Implements controllers `U1` and `U2` with dwell-time knowledge and computes the theoretical constants.  
-Run:
-```matlab
-U1_dwell_time.m
-U2_dwell_time.m
-epsilon_star.m
-barepsilon_star.m
 
