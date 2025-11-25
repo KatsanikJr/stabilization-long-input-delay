@@ -1,4 +1,4 @@
-%% U2_dwell.m
+%% U2_dwell_time.m
 % Averaging predictor-based controller U2 with dwell-time knowledge.
 % Implements (1), (5)--(7) and (10)--(12) of the paper for the switched system (1)
 % with input delay D = 1 and minimum dwell time tau_d = 0.9 s.
@@ -178,4 +178,5 @@ ax = gca;
 ax.FontSize = 20; 
 % Improve plot clarity
 alpha(0.2); % Set marker transparency
+
 hold off;
