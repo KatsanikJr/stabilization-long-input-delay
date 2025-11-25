@@ -1,8 +1,8 @@
 # Stabilization of Linear Switched Systems with Long Constant Input Delay via Average or Averaging Predictor Feedbacks
 
-The purpose of these MATLAB codes is to reproduce the simulation results from Section 4 of the paper "Stabilization of Linear Switched Systems with Long {Constant} Input Delay via Average or Averaging Predictor Feedbacks" by Andreas Katsanikakis and Nikolaos Bekiaris-Liberis which is submitted, as a revised version, in the Control System Letters. The preprint of the paper is available in "[Link for preprint](https://arxiv.org/abs/2506.03908)".
+The purpose of these MATLAB codes is to reproduce the simulation results from Section 4 of the paper "Stabilization of Linear Switched Systems with Long Constant Input Delay via Average or Averaging Predictor Feedbacks" by Andreas Katsanikakis and Nikolaos Bekiaris-Liberis which is submitted, as a revised version, in the Control System Letters. The preprint of the paper is available in "[Link for preprint](https://arxiv.org/abs/2506.03908)".
 
-The mathematical background and the documentation for the codes are briefly desribed in the file "READMEcod.pdf.".
+The mathematical background and the documentation for the codes are briefly desribed in the file "READMEcod.pdf".
 
 ## Requirements
 
