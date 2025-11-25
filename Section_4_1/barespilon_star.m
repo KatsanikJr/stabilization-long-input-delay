@@ -1,7 +1,6 @@
 %% barepsilon_star.m
 % Computes the constant \bar{epsilon}, an admissible \bar{epsilon}_star,
-% and the corresponding dwell-time bound \bar{\tau}_d_star for the
-% averaging–predictor controller U2, for the switched system with
+% and the corresponding dwell time bound \bar{\tau}_d_star, for the switched system (1) under U2 with
 % input delay D = 1.
 %
 % This script implements exactly the quantities appearing in Theorem 2 of the paper:
@@ -176,4 +175,5 @@ bartau_d_star = log(mu)/barbeta; %equation (127)
 
 fprintf('bar_epsilon      :                             %g\n', barepsilon);
 fprintf('bar_epsilon_star :                             %g\n', min_positive_real_root);
+
 fprintf('bar_tau_d_star (theoretical dwell-time bound): %g\n', bartau_d_star);
