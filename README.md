@@ -17,7 +17,7 @@ The folder names (Section_4_1, Section_4_2, Section_4_3) correspond directly to 
 
 The simulation results of Section 4 can be reproduced by running the scripts contained in the folders:
 
-#### Section_4_1/ — Implements controllers U1 and U2 with dwell-time knowledge.
+#### Section_4_1/ — Implements controllers U1 and U2 with dwell time knowledge.
 Run: 
 
 U1_dwell_time.m
