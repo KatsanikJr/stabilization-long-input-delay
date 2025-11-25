@@ -1,7 +1,6 @@
 %% epsilon_star.m
 % Computes the constant epsilon, an admissible epsilon_star, and the
-% corresponding dwell-time bound tau_d_star for the average predictor-based
-% controller U1, for the switched system with input delay D = 1.
+% corresponding dwell-time bound tau_d_star, for the switched system (1) under U1 with input delay D = 1.
 %
 % This script computes exactly the quantities appearing in Theorem 1 of the paper:
 %
@@ -211,5 +210,6 @@ fprintf('epsilon      :                             %g\n', eps);
 fprintf('epsilon_star :                             %g\n', min_positive_real_root);
 
 fprintf('tau_d_star (theoretical dwell-time bound): %g\n', tau_d_star);
+
 
 
