@@ -11,38 +11,49 @@ The codes require:
 - **MATLAB**
 - **CVX toolbox** (with a compatible SDP solver such as SeDuMi, SDPT3, or MOSEK)  
 - **Symbolic Math Toolbox** (for the computation of theoretical constants in `epsilon_star.m` and `barepsilon_star.m`)
-
 ## Usage
 
 The folder names (Section_4.1, Section_4.2, Section_4.3) correspond directly to the section numbering in the paper, to make it easy to locate the scripts associated with each set of simulation results.
 
-The simulation results of Section 4 can be reproduced by running the scripts contained in the folders 
+The simulation results of Section 4 can be reproduced by running the scripts contained in the folders:
 
-Section_4.1/ — Implements controllers U1 and U2 with dwell-time knowledge.
+#### Section_4.1/ — Implements controllers U1 and U2 with dwell-time knowledge.
 Run: 
+
 U1_dwell_time.m
+
 U2_dwell_time.m
+
 epsilon_star.m
+
 barepsilon_star.m
 
 
-Section_4.2/ — Comparison with the exact predictor and no dwell time knowledge cases.
+####  Section_4.2/ — Comparison with the exact predictor and no dwell time knowledge cases.
 Run:
+
 U1_nodwell_time.m
+
 U2_nodwell_time.m
+
 ExactPredictor_Uex.m
 
 Then compute the performance index. 
 
 Run:
+
 Performance_Index.m
 
 
-Section_4.3/ — Robustness to delay mismatches (delay perturbations).
+####  Section_4.3/ — Robustness to delay mismatches (delay perturbations).
 Run:
+
 U1_robust_0_95.m
+
 U1_robust_1_05.m
+
 U2_robust_0_95.m
+
 U2_robust_1_05.m
 
 
