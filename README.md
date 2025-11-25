@@ -1,118 +1,56 @@
-Stabilization of Linear Switched Systems with Long Constant Input Delay via Predictor Feedbacks
+# Stabilization of Linear Switched Systems with Long Constant Input Delay via Average or Averaging Predictor Feedbacks
 
-The purpose of these MATLAB codes is to reproduce the simulation results presented in Section 4 of the paper:
+The purpose of these MATLAB codes is to reproduce the simulation results from Section 4 of the paper "Stabilization of Linear Switched Systems with Long {Constant} Input Delay via Average or Averaging Predictor Feedbacks" by Andreas Katsanikakis and Nikolaos Bekiaris-Liberis which is submitted, as a revised version, in the Control System Letters. The preprint of the paper is available in "[Link for preprint](https://arxiv.org/abs/2506.03908)".
 
-"Stabilization of Linear Switched Systems with Long Constant Input Delay via Average or Averaging Predictor Feedbacks."
+The mathematical background and the documentation for the codes are briefly desribed in the file "READMEcod.pdf.".
 
-This repository includes implementations of:
+## Requirements
 
-the Average Predictor controller U1
+The codes require MATLAB and the CVX toolbox (with a compatible SDP solver such as SeDuMi, SDPT3, or MOSEK).
 
-the Averaging Predictors controller U2
+## Usage
 
-the non-causal exact predictor (used only as a reference)
+The simulation results of Section 4 can be reproduced by running the scripts contained in the folders 
 
-robustness simulations with delay perturbations
-
-scripts that compute the theoretical constants epsilon, epsilon_bar, epsilon_star, epsilon_bar_star, tau_d_star, tau_d_bar_star
-
-A short mathematical summary and documentation are provided in the file "codesdoc.pdf".
-
-Requirements
-
-MATLAB
-
-CVX toolbox (required by optimizeL2.m)
-
-An SDP solver compatible with CVX (for example: SeDuMi, SDPT3, or MOSEK)
-
-Usage
-
-Section 4.1: Controllers with dwell-time knowledge
-Run these scripts inside the folder Section_4.1:
-
-U1_dwell
-U2_dwell
-epsilon_star
-barepsilon_star
-
-These scripts simulate the system under U1 and U2, produce plots of X(t), U(t), and the switching signal, and compute the theoretical constants in Theorem 1 and Theorem 2.
-
-Section 4.2: No dwell-time information and exact predictor
-Run these scripts inside the folder Section_4.2:
-
-U1_nodwell
-U2_nodwell
-ExactPredictor
-Performance_Index
-
-These scripts simulate the controllers without dwell-time information, simulate the exact predictor, and compute the quadratic performance index
-J = integral from 0 to T of (|X(t)|^2 + |U(t)|^2) dt.
-
-Section 4.3: Robustness to delay perturbations
-Run these scripts inside the folder Section_4.3:
-
-U1_robust_0_95
-U1_robust_1_05
-U2_robust_0_95
-U2_robust_1_05
-
-These simulate the system when the actual input delay differs from the nominal delay assumed by the controller.
-
-Repository Structure
-
-Auxiliary Functions/
-computeK.m
-optimizeL2.m
-generateSwSignal.m
-swsig_values.mat
-
-Section_4.1/
-U1_dwell.m
-U2_dwell.m
+Section_4.1/ — Implements controllers U1 and U2 with dwell-time knowledge.
+Run: 
+U1_dwell_time.m
+U2_dwell_time.m
 epsilon_star.m
 barepsilon_star.m
 
-Section_4.2/
-U1_nodwell.m
-U2_nodwell.m
-ExactPredictor.m
+Section_4.2/ — Comparison with the exact predictor and no–dwell-time cases.
+Run:
+U1_nodwell_time.m
+U2_nodwell_time.m
+ExactPredictor_Uex.m
+
+Then compute the performance index. 
+Run:
 Performance_Index.m
 
-Section_4.3/
+Section_4.3/ — Robustness (delay perturbations).
+Run:
 U1_robust_0_95.m
 U1_robust_1_05.m
 U2_robust_0_95.m
 U2_robust_1_05.m
 
-README.pdf
-LICENSE
 
-License
+## License
 
-Copyright 2025.
-See LICENSE for detailed license information.
+Copyright Andreas Katsanikakis 2025. See LICENSE.txt for licensing information.
 
-Acknowledgements
+## Acknowledgements
 
-This work was supported by the listed funding agency and grant.
-The views expressed are those of the authors and do not necessarily reflect the views of the funding body.
+Funded by the European Union (ERC, C-NORA, 101088147). Views and opinions expressed are however those of the authors only and do not necessarily reflect those of the European Union or the European Research Council Executive Agency. Neither the European Union nor the granting authority can be held responsible for them.
 
-How to Cite
+## Cite this work
 
-Journal version:
-
-@article{Your2025Article,
-author = {...},
-journal = {Automatica},
-title = {Stabilization of Linear Switched Systems with Long Constant Input Delay via Average or Averaging Predictor Feedbacks},
-year = {2025}
-}
-
-arXiv preprint:
-
-@unpublished{Your2025Arxiv,
-author = {...},
-note = {arXiv:xxxx.xxxxx, 2025},
-title = {Stabilization of Linear Switched Systems with Long Constant Input Delay via Average or Averaging Predictor Feedbacks}
+arXiv preprint: (https://arxiv.org/abs/2506.03908)
+```
+@Unpublished{KatsBek25carxiv,
+  author = {A. Katsanikakis and N. Bekiaris-Liberis},
+  note   = {{arXiv}, 	2506.03908, 2025},
+  title  = {Stabilization of Linear Switched Systems with Long Constant Input Delay via Average or Averaging Predictor Feedbacks},
 }
